@@ -6,18 +6,100 @@
     <title>Document</title>
 </head>
 <style>
+
+    body{
+        text-align: center;
+        align-content: center;
+         margin-top: 40px;
+
+    }
         .parent{
             height: 200px;
             width: 200px;
-            border: 10px solid black;
+            border: 2px solid black;
+            padding: 10px;
             background-color: brown;
+            text-align: center;
+            align-content: center;
+            color: white;
+            
         }
 
+        .child {
+                height: 100px;
+                width: 100px;
+                background-color: rgb(106, 40, 40);
+                padding: 15px;
+                border: 3px solid black;
+                align-content: center;
+                color: white;
+            
+                
+               
+
+        }
+
+        button {
+                    align-items: center;
+                    justify-content: center;
+                    
+            
+        }
+
+        .parent:hover, .child:hover, button:hover{
+
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: black;
+            color: white;
+        }
 
 </style>
 <body>
-    <div class="parent"> Parent</div>
-    <div class="child">Child</div>
-    <button>Delete</button>
+
+    <h1>Event Bubbling</h1>
+
+    <div class="parent"> Parent
+    <div class="child">Child
+
+        <button class="button">Delete</button>
+
+    </div>
+</div>
+
+    <script>
+
+document.querySelector('.parent').addEventListener('click', function (e) {
+    
+     e.stopPropagation(e);
+      console.log('Parent clicked');
+      alert('parent')
+    });
+
+    document.querySelector('.child').addEventListener('click', function (e) {
+      console.log('child clicked');
+      alert('child')
+    //   e.stopPropagation(e);
+      
+
+     
+
+
+    });
+
+
+    document.querySelector('.button').addEventListener('click', function () {
+      console.log('button');
+      alert('button')
+    console.log(e);
+    
+    
+
+    });
+
+    </script>
+
 </body>
 </html>
